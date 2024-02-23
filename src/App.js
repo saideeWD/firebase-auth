@@ -1,24 +1,31 @@
-import logo from './logo.svg';
-import './App.css';
+import { RouterProvider } from "react-router-dom";
+import MainLayout from "./Layout/MainLayout";
+import { router } from "./Routes/Router";
+import Container from "react-bootstrap/Container";
+import Nav from "react-bootstrap/Nav";
+import Navbar from "react-bootstrap/Navbar";
+import "bootstrap/dist/css/bootstrap.min.css";
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <>
+      <>
+        <Navbar bg="light" data-bs-theme="light">
+          <Container>
+            <Navbar.Brand href="#home">Firebase</Navbar.Brand>
+            <Nav className="me-auto">
+              <Nav.Link href="/home">Home</Nav.Link>
+              <Nav.Link href="/singup">Sign up</Nav.Link>
+              <Nav.Link href="/singin">Sine in</Nav.Link>
+            </Nav>
+          </Container>
+        </Navbar>
+      </>
+
+      <RouterProvider router={router}>
+        <MainLayout></MainLayout>
+      </RouterProvider>
+    </>
   );
 }
 
